@@ -7,7 +7,7 @@ namespace brazoRobotico {
     let pinServo3 = AnalogPin.P2
     let pinServo4 = AnalogPin.P15
 
-    function moverServoSuave(pin: AnalogPin, inicio: number, fin: number): void {
+    function moverSuave(pin: AnalogPin, inicio: number, fin: number): void {
         if (inicio < fin) {
             for (let pos = inicio; pos <= fin; pos++) {
                 pins.servoWritePin(pin, pos)
@@ -22,11 +22,7 @@ namespace brazoRobotico {
     }
 
     /**
-     * Configura los pines donde están conectados los servomotores.
-     * @param servo1 pin del servo 1
-     * @param servo2 pin del servo 2
-     * @param servo3 pin del servo 3
-     * @param servo4 pin del servo 4
+     * Configura los pines de los servomotores.
      */
     //% block="configurar pines servo 1 %servo1 servo 2 %servo2 servo 3 %servo3 servo 4 %servo4"
     //% servo1.defl=AnalogPin.P0
@@ -42,8 +38,7 @@ namespace brazoRobotico {
 
     /**
      * Configura la velocidad de movimiento.
-     * Entre mayor sea el número, más lento se moverá el servo.
-     * @param nuevaVelocidad pausa entre cada grado en milisegundos
+     * Entre mayor sea el número, más lento se moverá.
      */
     //% block="configurar velocidad %nuevaVelocidad ms"
     //% nuevaVelocidad.defl=10
@@ -53,49 +48,41 @@ namespace brazoRobotico {
 
     /**
      * Mueve el servo 1 desde un ángulo inicial hasta un ángulo final.
-     * @param inicio ángulo inicial
-     * @param fin ángulo final
      */
     //% block="mover servo 1 de %inicio a %fin grados"
     //% inicio.defl=70
     //% fin.defl=120
     export function moverServo1(inicio: number, fin: number): void {
-        moverServoSuave(pinServo1, inicio, fin)
+        moverSuave(pinServo1, inicio, fin)
     }
 
     /**
      * Mueve el servo 2 desde un ángulo inicial hasta un ángulo final.
-     * @param inicio ángulo inicial
-     * @param fin ángulo final
      */
     //% block="mover servo 2 de %inicio a %fin grados"
     //% inicio.defl=80
     //% fin.defl=120
     export function moverServo2(inicio: number, fin: number): void {
-        moverServoSuave(pinServo2, inicio, fin)
+        moverSuave(pinServo2, inicio, fin)
     }
 
     /**
      * Mueve el servo 3 desde un ángulo inicial hasta un ángulo final.
-     * @param inicio ángulo inicial
-     * @param fin ángulo final
      */
     //% block="mover servo 3 de %inicio a %fin grados"
     //% inicio.defl=135
     //% fin.defl=90
     export function moverServo3(inicio: number, fin: number): void {
-        moverServoSuave(pinServo3, inicio, fin)
+        moverSuave(pinServo3, inicio, fin)
     }
 
     /**
      * Mueve el servo 4 desde un ángulo inicial hasta un ángulo final.
-     * @param inicio ángulo inicial
-     * @param fin ángulo final
      */
     //% block="mover servo 4 de %inicio a %fin grados"
     //% inicio.defl=90
     //% fin.defl=50
     export function moverServo4(inicio: number, fin: number): void {
-        moverServoSuave(pinServo4, inicio, fin)
+        moverSuave(pinServo4, inicio, fin)
     }
 }
